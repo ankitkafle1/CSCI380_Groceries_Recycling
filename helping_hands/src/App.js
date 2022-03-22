@@ -2,12 +2,11 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import Header from './components/header_footer/Header';
 import AddCustomer from './components/customers/AddCustomer';
-//import Profile from './components/header_footer/Profile';
 import Customers from './components/customers/Customers';
-import apiRequest from './components/ApiReq';
-import ApiRequest from './components/ApiReq';
+
+
 function App() {
-  const API_URL = 'http://localhost:4000/api/customers';
+  const API_URL = 'http://localhost:4500/api/customers';
   const [CustomersInfo,setCustomers] = useState([]);
 
   useEffect(() => {
@@ -19,6 +18,8 @@ function App() {
     fetchItems();
     }, [])
 
+/*
+//A function to add items in a database
     const addItems = async (item) => {
       const id = 10
       const myNewItem = {'name':"i am a disco dancer"};
@@ -33,7 +34,7 @@ function App() {
       }
       const result = await apiRequest(API_URL, postOptions);
     }
-    
+    */
   return(
     <div>
         <Header/>
