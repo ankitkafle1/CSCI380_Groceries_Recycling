@@ -1,15 +1,27 @@
 var createError = require('http-errors');
+const mongoose = require('mongoose')
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const cors = require('cors')
 const PORT = process.env.PORT || 4500;
-//const fs = require('fs')
 var indexRouter = require('./routes/index');
 
 var app = express();
 app.use(cors())
+
+//Create and make a connection to mongoDb 
+const url = ''
+const dbConnection = async () => {
+    try {
+        await mongoose.connect('mongodb+srv://csci380:csci380@cluster0.z047a.mongodb.net/CSCI380DB?retryWrites=true&w=majority')
+    }catch(err){
+      console.error(err)
+    }
+}
+dbConnection()
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
