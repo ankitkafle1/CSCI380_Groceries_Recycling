@@ -12,10 +12,10 @@ var app = express();
 app.use(cors())
 
 //Create and make a connection to mongoDb 
-const url = ''
+const url = 'mongodb+srv://csci380:csci380@cluster0.z047a.mongodb.net/CSCI380DB?retryWrites=true&w=majority'
 const dbConnection = async () => {
     try {
-        await mongoose.connect('mongodb+srv://csci380:csci380@cluster0.z047a.mongodb.net/CSCI380DB?retryWrites=true&w=majority')
+        await mongoose.connect(url)
     }catch(err){
       console.error(err)
     }
@@ -52,4 +52,10 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+dbConnection.connected.once('open',()=>{
+  console.log("Connected to DAtabase")
+  app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+})
+
+//app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
