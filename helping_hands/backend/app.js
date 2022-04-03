@@ -1,3 +1,4 @@
+require('dotenv').config()
 var createError = require('http-errors');
 const mongoose = require('mongoose')
 var express = require('express');
@@ -7,20 +8,13 @@ var logger = require('morgan');
 const cors = require('cors')
 const PORT = process.env.PORT || 4500;
 var indexRouter = require('./routes/index');
-
+const connectDB = require('./config/dbConn')
+var addUser = require('./routes/User');
 var app = express();
 app.use(cors())
 
 //Create and make a connection to mongoDb 
-const url = 'mongodb+srv://csci380:csci380@cluster0.z047a.mongodb.net/CSCI380DB?retryWrites=true&w=majority'
-const dbConnection = async () => {
-    try {
-        await mongoose.connect(url)
-    }catch(err){
-      console.error(err)
-    }
-}
-dbConnection()
+connectDB()
 
 
 // view engine setup
@@ -33,7 +27,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//Routes
 app.use('/', indexRouter);
+app.use('/users', addUser);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
