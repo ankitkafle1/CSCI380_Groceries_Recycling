@@ -1,4 +1,4 @@
-const fs = require('fs')
+
 const data = {
     users: require('../model/customer.json'),
     setUsers: function (data) { this.users = data}
@@ -19,19 +19,26 @@ const addNewUser = (req,res)=>{
     if(!newUser.firstname || !newUser.lastname || !newUser.userstory){
         return res.status(400).json({'message':'Invalid entry, please enter first name lastname, and user story'})
     }
-/*
-
-    const data = fs.require('../model/customer/customer.json')
-    const myObj = JSON.parse(data)
-    myObj.push(newUser)
-
-    var newData2 = JSON.stringify(myObj);
-    fs.writeFile('customer.json',newData2)
-*/
     data.setUsers([...data.users, newUser])
     res.status(201).json(data.users)
 }
+/*
+const addBlog= (req,res) =>{
+    try {
+        const result = await Blog.create(
+            {
+                "title":user,
+                "author":author,
+                "body":story,
+            }
+        )
+    } catch(err) {
+        console.error(err)
+    }
+    }
+    */
 module.exports ={
     getAllUsers,
-    addNewUser
+    addNewUser,
+  //  addBlog,
 }

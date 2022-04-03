@@ -53,9 +53,7 @@ app.use(function(err, req, res, next) {
 
 module.exports = app;
 
-dbConnection.connected.once('open',()=>{
+mongoose.connection.once('open',()=>{
   console.log("Connected to DAtabase")
   app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 })
-
-//app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

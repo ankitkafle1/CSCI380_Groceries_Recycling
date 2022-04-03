@@ -1,5 +1,4 @@
 const userController = require('../controllers/userController')
-
 var express = require('express');
 var router = express.Router();
 
@@ -13,5 +12,8 @@ router.route('/api/users').get(userController.getAllUsers)
 
 //
 router.route('/api/users').post(userController.addNewUser)
+
+//
+//router.route('/api/blog').post(userController.addBlog)
 
 module.exports = router;
