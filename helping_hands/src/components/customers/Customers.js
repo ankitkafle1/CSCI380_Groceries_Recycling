@@ -1,3 +1,5 @@
+import '../../resources/styles.css'
+
 const Customers = ({CustomersInfo, setCustomers, Cswitch, setSwitch})=>
 {
     const handleDelete = async (userId)=>{
@@ -18,6 +20,29 @@ const Customers = ({CustomersInfo, setCustomers, Cswitch, setSwitch})=>
     const displayCustomer = CustomersInfo.map(
         (info) => {
             return(
+                <div class="card">
+                <img src="..." class="card-img-top" alt="..."/>
+                <div class="card-body">
+                    <h5 class="card-title">{info.firstname}</h5>
+                    <p class="card-text">{info.userstory}</p>
+                    <p class="card-text"><small class="text-muted">{info.posttime}</small></p>
+                    <a href="#" class="btn btn-primary">Read Full Story </a>
+                    <button onClick={()=>handleDelete(info._id)}>Delete</button>
+
+                </div>
+                </div>
+            )
+    })
+
+    return(
+      <div>
+          <h2>Wishers</h2>
+          {displayCustomer}
+      </div>
+    )
+}
+export default Customers;
+/*
                 <ul>
                     <li>{info._id}</li>
                     <li>{info.firstname}</li>
@@ -27,14 +52,4 @@ const Customers = ({CustomersInfo, setCustomers, Cswitch, setSwitch})=>
                     <button onClick={()=>handleDelete(info._id)}>Delete</button>
 
                 </ul>
-            )
-    })
-
-    return(
-      <div>
-          <h2>Customers</h2>
-          {displayCustomer}
-      </div>
-    )
-}
-export default Customers;
+*/
