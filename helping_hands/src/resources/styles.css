@@ -1,0 +1,113 @@
+
+.card{
+
+    margin: 1%;
+    width:20%;
+    height: 300px;
+    overflow: hidden;
+    float: left;
+}
+.card-body{
+    overflow: auto;
+}
+/* Footer Team*/
+
+.team-container {
+    clear: both;
+    display: inline;
+    text-align: center;
+    padding: 1px 0px;
+    font-size: 20px;
+    color: #130a04;
+    background-color: #c0bbbb;
+}
+
+.member{
+    text-align: left;
+    padding-left: 5%;
+    padding-top: 5px;
+    padding-right: 5%;}
+/* Social meida CSS */
+
+#socialmedia_icon {
+    clear: both;
+    text-align: center;
+    font-size: 20px;
+}
+
+.fa {
+    padding: 10px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 5px;
+    border-radius: 50%;
+  }
+  
+  .fa:hover {
+      opacity: 0.7;
+  }
+  
+  .fa-facebook {
+    background: #3B5998;
+    color: white;
+  }
+  
+  .fa-twitter {
+    background: #55ACEE;
+    color: white;
+  }
+  
+  .fa-youtube {
+    background: #bb0000;
+    color: white;
+  }
+  
+  .fa-instagram {
+    background: #125688;
+    color: white;
+  }
+  
+  
+  .fa-snapchat-ghost {
+    background: #fffc00;
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  }
+
+  /* Navigation */
+
+  .Nav ul {
+    color: #fff;
+    list-style-type: none;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+  
+  .Nav li {
+    padding: 1rem;
+  }
+  
+  .Nav li:hover, 
+  .Nav li:focus {
+    padding: 1rem;
+  }
+  
+  .Nav li a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+  }
+  
+  .Nav li:hover, 
+  .Nav li:focus, 
+  .Nav li:hover a, 
+  .Nav li:focus a  {
+    background-color: #eee;
+    color: #333;
+  }
+  
+  .Nav li:hover a, 
+  .Nav li:focus a {
+    cursor: pointer;
+  }
