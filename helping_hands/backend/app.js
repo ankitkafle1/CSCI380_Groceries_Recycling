@@ -17,23 +17,6 @@ app.use(cors())
 connectDB()
 
 
-//DB CONNECTION
-const mysql = require('mysql');
-var connection = mysql.createConnection({
-    host: "helpinghand.cf9ypoggvosy.us-east-1.rds.amazonaws.com",
-    user: "rootadmin",
-    password: "ROOTAcce$$2022",
-    port: 3306,
-});
-connection.connect(function(err) {
-if(err){
-    console.error('Database connection failed: ' + err.stack);
-    return;
-}
-console.log('Connected to database.');
-});
-connection.end();
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');

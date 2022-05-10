@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
+import React from "react";
 
 const Nav = () => {
+
     return (
         <nav className="Nav">
             <ul>
@@ -10,7 +12,9 @@ const Nav = () => {
                 <li> <Link to="/customer">Wishers Info</Link> </li>
                 <li> <Link to="/makewish">Make a wish</Link> </li>
             </ul>
+            
         </nav>
+        
     )
 }
 
