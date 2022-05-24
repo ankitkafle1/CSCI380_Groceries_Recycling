@@ -11,16 +11,17 @@ import Home from './components/customers/Home';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import {Button} from "react-bootstrap";
-import { UserAuthContextProvider, logOut, useUserAuth } from './components/UserAuth';
-import {ProtectedRoute} from './components/ProtectedRoutes';
+import { UserAuthContextProvider, useUserAuth, sigSignOut } from './components/UserAuth';
+import ProtectedRoute from './components/ProtectedRoutes';
 
 function App() {
 
+  const { logOut, user } = useUserAuth();
+  const navigate = useNavigate();
   const handleLogout = async () => {
-    
     try {
-      await ProtectedRoute.user.logOut();
-      Navigate("/login");
+      await sigSignOut();
+      navigate("/");
     } catch (error) {
       console.log(error.message);
     }
@@ -40,12 +41,12 @@ function App() {
   return(
     <>
         <Nav/>
+        <UserAuthContextProvider>
         <div className="d-grid gap-2">
                 <Button variant="primary" onClick={handleLogout}>
                     Log out
                 </Button>
             </div>
-        <UserAuthContextProvider>
         <Routes>
           <Route exact path="/" element ={
             <Home/>
